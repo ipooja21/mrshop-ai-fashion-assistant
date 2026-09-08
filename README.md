@@ -244,4 +244,4 @@ API credentials should be stored securely using environment variables and should
 ---
 
 
-into a single fashion-assistant experience.
+
