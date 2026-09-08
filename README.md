@@ -27,15 +27,8 @@ The goal is to demonstrate how a single conversation can understand user intent,
 
 ## 🖥️ Mr.Shop Interface
 
-<p align="center">
-  <img src="docs/mrshop-screenshot.png" alt="Mr.Shop AI Fashion Assistant interface" width="100%">
-</p>
+<img width="1915" height="918" alt="image" src="https://github.com/user-attachments/assets/7614dfa7-1fa7-40b3-8499-c993f70f1d54" />
 
-<p align="center">
-  <em>Mr.Shop — AI-powered conversational fashion assistant</em>
-</p>
-
----
 
 ## 🏗️ Architecture
 
@@ -250,99 +243,5 @@ API credentials should be stored securely using environment variables and should
 
 ---
 
-## 📁 Project Structure
-
-```text
-Mr.Shop/
-│
-├── frontend/
-│   └── index.html
-│
-├── backend/
-│   ├── main.py
-│   ├── requirements.txt
-│   ├── database/
-│   ├── services/
-│   ├── tools/
-│   └── tests/
-│
-├── docs/
-│   └── mrshop-screenshot.png
-│
-├── README.md
-└── .gitignore
-```
-
----
-
-## 🚀 Running Locally
-
-### 1. Clone the repository
-
-```bash
-git clone <your-repository-url>
-cd Mr.Shop
-```
-
-### 2. Install backend dependencies
-
-```bash
-pip install -r backend/requirements.txt
-```
-
-### 3. Configure environment variables
-
-Create a `.env` file:
-
-```env
-OPENAI_API_KEY=your_api_key_here
-```
-
-### 4. Start the FastAPI backend
-
-```bash
-uvicorn backend.main:app --reload
-```
-
-### 5. Open the frontend
-
-Open `frontend/index.html` or serve it using a local development server.
-
----
-
-## 🔐 Environment Variables
-
-```env
-OPENAI_API_KEY=
-```
-
-**Never commit API keys to GitHub.**
-
----
-
-## 🧪 Testing
-
-```bash
-pytest
-```
-
----
-
-## 📱 Responsive Design
-
-The Mr.Shop frontend is designed to work across:
-
-- Desktop
-- Laptop
-- Tablet
-- Mobile devices
-
----
-
-## 🎯 Project Goal
-
-Mr.Shop demonstrates how conversational AI can combine:
-
-**Natural Language + Memory + Intent Detection + Product Recommendations + Styling + Tools**
 
 into a single fashion-assistant experience.
