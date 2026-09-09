@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 from app.memory.memory_service import memory_service
+from app.schemas import ChatRequest, ChatResponse
 from app.orchestrator.conversation_orchestrator import (
     conversation_orchestrator,
 )
@@ -19,12 +20,6 @@ router = APIRouter(prefix="/api", tags=["Mr.Shop"])
 class CreateConversationRequest(BaseModel):
     user_id: str = Field(..., min_length=1)
     name: str | None = None
-
-
-class MessageRequest(BaseModel):
-    user_id: str = Field(..., min_length=1)
-    conversation_id: int
-    message: str = Field(..., min_length=1)
 
 
 # =========================================================
@@ -72,7 +67,7 @@ def create_conversation(
 
 @router.post("/messages")
 def send_message(
-    request: MessageRequest,
+    request: ChatRequest,
 ) -> Dict[str, Any]:
 
     try:
@@ -151,8 +146,8 @@ def get_user_memory(
 # CHAT ENDPOINT
 # =========================================================
 
-@router.post("/chat")
-def chat(request: MessageRequest) -> Dict[str, Any]:
+@router.post("/chat", response_model=ChatResponse)
+def chat(request: ChatRequest) -> Dict[str, Any]:
 
     try:
         result = conversation_orchestrator.process_message(
@@ -171,7 +166,7 @@ def chat(request: MessageRequest) -> Dict[str, Any]:
     except Exception as exc:
         raise HTTPException(
             status_code=500,
-            detail="Chat processing failed.",
+            detail=f"Chat processing failed: {exc}",
         )
 
 
